@@ -1,17 +1,32 @@
+<div align="center">
+
 # X6 Control
 
-**X6 Control** — приложение для настройки игровой мыши **Attack Shark X6** на macOS.
+**Управление игровой мышью Attack Shark X6 на macOS**
 
-Настраивай мышь через графический интерфейс: меняй DPI, частоту опроса, подсветку, параметры сенсора и назначение кнопок.
+Настрой DPI, частоту опроса, RGB-подсветку и кнопки — прямо с Mac.
+
+[![macOS](https://img.shields.io/badge/macOS-13%2B-555555?logo=apple&logoColor=white)](https://www.apple.com/macos/)
+[![Swift](https://img.shields.io/badge/Swift-App-orange?logo=swift&logoColor=white)](https://www.swift.org/)
+[![Python](https://img.shields.io/badge/Python-Backend-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/0xDEADBEEF-cpu/X6Control/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white)](https://github.com/0xDEADBEEF-cpu/X6Control/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/0xDEADBEEF-cpu/X6Control?display_name=tag&logo=github)](https://github.com/0xDEADBEEF-cpu/X6Control/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+</div>
+
+---
 
 ## Возможности
 
-- **DPI:** 6 уровней чувствительности с шагом 50.
-- **Частота опроса:** 125, 250, 500 и 1 000 Гц.
-- **RGB-подсветка:** 7 режимов, цвет, скорость эффектов и таймер сна.
-- **Сенсор:** настройка угла, сглаживания дрожания, высоты отрыва и debounce.
-- **Кнопки:** переназначение семи физических кнопок.
-- **Профили:** сохранение настроек на компьютере, применение и сброс профиля.
+| Функция | Что можно настроить |
+| --- | --- |
+| **DPI** | 6 уровней чувствительности с шагом 50 |
+| **Частота опроса** | 125, 250, 500 и 1 000 Гц |
+| **RGB-подсветка** | 7 режимов, цвет, скорость эффектов и таймер сна |
+| **Сенсор** | Угол, сглаживание дрожания, высота отрыва и debounce |
+| **Кнопки** | Переназначение семи физических кнопок |
+| **Профили** | Локальное сохранение, применение и сброс настроек |
 
 ## Совместимость
 
@@ -19,12 +34,14 @@
 - Mac с процессором Intel или Apple Silicon.
 - Attack Shark X6, подключённая по USB или через комплектный радиоприёмник 2,4 ГГц.
 
-Поддерживаются USB-идентификаторы мыши `1d57:fa61` и приёмника `1d57:fa60`. Подключение по Bluetooth и редактор макросов не поддерживаются.
+Поддерживаются USB-идентификаторы мыши `1d57:fa61` и приёмника `1d57:fa60`.
+
+> Подключение по Bluetooth и редактор макросов не поддерживаются.
 
 ## Установка
 
 1. Открой вкладку [Releases](https://github.com/0xDEADBEEF-cpu/X6Control/releases).
-2. Скачай ZIP-архив или DMG-образ последней версии, если он опубликован.
+2. Скачай ZIP-архив или DMG-образ последней версии.
 3. Если скачан ZIP — распакуй его.
 4. Перемести **X6 Control.app** в папку «Программы».
 5. Подключи мышь и запусти приложение.
@@ -43,4 +60,4 @@
 
 ## Лицензия
 
-[MIT License](LICENSE).
+Проект распространяется под лицензией [MIT](LICENSE).
