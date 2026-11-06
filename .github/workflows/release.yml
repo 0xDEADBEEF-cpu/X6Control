@@ -19,10 +19,10 @@ jobs:
         run: test "${GITHUB_REF_NAME#v}" = "$(cat VERSION)"
 
       - name: Build universal macOS app
-        run: scripts/build-macos.sh universal
+        run: bash scripts/build-macos.sh universal
 
       - name: Package release files
-        run: scripts/package-macos-release.sh "${GITHUB_REF_NAME#v}"
+        run: bash scripts/package-macos-release.sh "${GITHUB_REF_NAME#v}"
 
       - name: Publish GitHub Release
         env:
