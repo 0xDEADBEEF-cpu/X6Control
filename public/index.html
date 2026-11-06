@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10130f">
+  <title>X6 Control — Attack Shark</title>
+  <link rel="stylesheet" href="app.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 42 42" fill="none"><rect x="10" y="4" width="22" height="34" rx="11" stroke="currentColor" stroke-width="2"/><path d="M21 5v12m-10-1h20" stroke="currentColor" stroke-width="2"/><path d="M14 27h14" stroke="currentColor" stroke-width="2" opacity=".5"/></svg>
+          <span></span>
+        </div>
+        <div><strong>X6<span>CONTROL</span></strong><small>ATTACK SHARK</small></div>
+      </div>
+
+      <div class="sidebar-device" id="sidebarDevice">
+        <div class="sidebar-device-top"><span class="live-dot"></span><span id="sidebarStatus">Проверяю мышь</span></div>
+        <strong id="sidebarDeviceName">Attack Shark X6</strong>
+        <small id="sidebarTransport">Локальный профиль</small>
+      </div>
+
+      <div class="nav-caption">УСТРОЙСТВО</div>
+      <nav class="main-nav" aria-label="Разделы">
+        <button class="nav-item active" data-page="overview"><span class="nav-icon">⌂</span><span>Обзор</span><span class="nav-arrow">↗</span></button>
+        <button class="nav-item" data-page="lighting"><span class="nav-icon">✳</span><span>Подсветка</span></button>
+        <button class="nav-item" data-page="performance"><span class="nav-icon">◉</span><span>Производительность</span></button>
+        <button class="nav-item" data-page="controls"><span class="nav-icon">⌁</span><span>Сенсор и кнопки</span></button>
+        <button class="nav-item" data-page="buttons"><span class="nav-icon">▦</span><span>Назначение кнопок</span></button>
+        <button class="nav-item" data-page="device"><span class="nav-icon">⚙</span><span>Профили и устройство</span></button>
+      </nav>
+
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-foot">
+        <div class="privacy-mark"><span>⌑</span><div><strong>Работает локально</strong><small>USB-команды остаются на этом Mac</small></div></div>
+        <div class="version-line"><span>X6 Control</span><span>v1.0</span></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-heading">
+          <div class="eyebrow" id="pageEyebrow">ТВОЯ МЫШЬ. ТВОИ ПРАВИЛА.</div>
+          <h1 id="pageTitle">Центр управления</h1>
+        </div>
+        <div class="topbar-actions">
+          <label class="top-select-wrap" title="Выбрать подключённый X6">
+            <span class="top-select-icon">⌖</span>
+            <select id="deviceSelect" aria-label="Устройство"><option value="">Поиск X6…</option></select>
+          </label>
+          <label class="top-select-wrap profile-wrap" title="Локальный профиль">
+            <span class="profile-avatar">P</span>
+            <select id="profileSelect" aria-label="Профиль"><option value="">Профиль</option></select>
+          </label>
+          <button id="applyProfile" class="button button-primary button-top" disabled><span>↗</span> Записать профиль</button>
+        </div>
+      </header>
+
+      <div class="connection-banner" id="connectionBanner" role="status">
+        <span class="banner-icon">i</span>
+        <span id="connectionMessage">Подключаюсь к локальному USB-мосту…</span>
+        <button id="refreshButton" class="text-button" type="button">Обновить</button>
+      </div>
+
+      <div class="view-stack">
+        <section class="page-view active" data-view="overview">
+          <div class="overview-hero panel">
+            <div class="hero-copy">
+              <div class="hero-kicker"><span class="hero-live"></span> X6 · CONTROL CENTER</div>
+              <h2>Настрой мышь<br>под свой ритм<span>.</span></h2>
+              <p>Свет, сенсор, скорость и каждая кнопка — в одном месте.</p>
+              <button class="button button-lime" data-go="lighting" type="button">Настроить подсветку <span>↗</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div>
+              <div class="art-glow" id="overviewGlow"></div>
+              <svg class="mouse-art" viewBox="0 0 330 330" fill="none">
+                <defs><linearGradient id="mouseBody" x1="66" y1="32" x2="255" y2="302" gradientUnits="userSpaceOnUse"><stop stop-color="#454943"/><stop offset=".5" stop-color="#252923"/><stop offset="1" stop-color="#171a16"/></linearGradient><linearGradient id="mouseEdge" x1="87" y1="51" x2="244" y2="276" gradientUnits="userSpaceOnUse"><stop stop-color="#969e8b" stop-opacity=".65"/><stop offset="1" stop-color="#43483f" stop-opacity=".15"/></linearGradient></defs>
+                <path d="M165 22c-56 0-101 45-101 101v84c0 60 45 101 101 101s101-41 101-101v-84c0-56-45-101-101-101Z" fill="url(#mouseBody)" stroke="url(#mouseEdge)" stroke-width="3"/>
+                <path d="M165 23v102" stroke="#8b9182" stroke-opacity=".52" stroke-width="2"/>
+                <path d="M166 25c-34 0-61 28-61 62v33h60V25Zm0 0c34 0 61 28 61 62v33h-60V25Z" fill="#33372f" stroke="#777d6f" stroke-opacity=".42" stroke-width="2"/>
+                <rect x="153" y="53" width="24" height="47" rx="12" fill="#11140f" stroke="#686f60" stroke-width="2"/>
+                <rect x="161" y="61" width="8" height="18" rx="4" fill="#c9ff59"/>
+                <path d="M64 147h30v48c0 18-13 32-30 34v-82Zm202 0h-30v48c0 18 13 32 30 34v-82Z" fill="#363b33" stroke="#7a8173" stroke-opacity=".4" stroke-width="2"/>
+                <path d="M64 216c13-2 24-10 29-21m173 21c-13-2-24-10-29-21" stroke="#c9ff59" stroke-width="4" stroke-linecap="round" opacity=".88"/>
+                <path d="M107 245c14 17 35 27 58 27s44-10 58-27" stroke="#c9ff59" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+              </svg>
+              <div class="art-label"><span class="art-label-line"></span><span>ERGONOMIC<br>WIRELESS DESIGN</span></div>
+            </div>
+            <div class="hero-index">01 <span>/</span> 06</div>
+          </div>
+
+          <div class="section-heading overview-heading"><div><div class="eyebrow">БЫСТРЫЙ ДОСТУП</div><h2>Текущий профиль</h2></div><span class="profile-tag" id="overviewProfileTag">Стандарт X6</span></div>
+          <div class="overview-grid">
+            <button class="summary-card panel" data-go="performance" type="button"><span class="summary-icon lime-icon">◉</span><span class="summary-label">АКТИВНЫЙ DPI</span><strong id="overviewDpi">1 200</strong><small id="overviewDpiStage">Этап 2 из 6 <i>↗</i></small></button>
+            <button class="summary-card panel" data-go="performance" type="button"><span class="summary-icon blue-icon">⌁</span><span class="summary-label">ЧАСТОТА ОПРОСА</span><strong id="overviewPolling">1 000 <em>Гц</em></strong><small>USB report rate <i>↗</i></small></button>
+            <button class="summary-card panel" data-go="lighting" type="button"><span class="summary-icon amber-icon">✳</span><span class="summary-label">ПОДСВЕТКА</span><strong id="overviewLighting">Дыхание</strong><small id="overviewColor"><span class="mini-color"></span> Зелёный <i>↗</i></small></button>
+            <button class="summary-card panel" data-go="buttons" type="button"><span class="summary-icon violet-icon">▦</span><span class="summary-label">КНОПКИ</span><strong>7 действий</strong><small>Настроить назначение <i>↗</i></small></button>
+          </div>
+
+          <div class="bottom-note panel"><span class="note-symbol">⌑</span><div><strong>Сначала настрой, потом отправь</strong><p>Изменения сохраняются в локальный профиль. Команды попадут в X6 только после нажатия «Применить».</p></div><span class="note-chip">LOCAL ONLY</span></div>
+        </section>
+
+        <section class="page-view" data-view="lighting">
+          <div class="page-intro"><div><div class="eyebrow">01 / ВИЗУАЛ</div><h2>Подсветка, которая<br>тебе подходит<span>.</span></h2><p>Выбери эффект, цвет и темп. Изменения появятся на мыши после применения.</p></div><div class="intro-stamp"><span>RGB</span><small>LIGHT<br>ENGINE</small></div></div>
+          <div class="lighting-layout">
+            <div class="panel lighting-preview-panel">
+              <div class="panel-topline"><span class="panel-label">ПРЕДПРОСМОТР</span><span class="preview-status"><i></i> X6 PREVIEW</span></div>
+              <div class="lighting-preview" id="lightingPreview">
+                <div class="preview-rings"></div><div class="preview-spot" id="previewSpot"></div>
+                <svg class="preview-mouse" viewBox="0 0 300 300" fill="none" aria-hidden="true">
+                  <defs><linearGradient id="previewBody" x1="72" y1="24" x2="231" y2="278" gradientUnits="userSpaceOnUse"><stop stop-color="#51574c"/><stop offset=".48" stop-color="#2a2e27"/><stop offset="1" stop-color="#191c18"/></linearGradient></defs>
+                  <path d="M150 22c-50 0-90 40-90 91v75c0 54 40 90 90 90s90-36 90-90v-75c0-51-40-91-90-91Z" fill="url(#previewBody)" stroke="#7a8273" stroke-opacity=".6" stroke-width="2"/>
+                  <path d="M150 24v94" stroke="#969d8e" stroke-opacity=".6" stroke-width="2"/>
+                  <path d="M150 24c-30 0-54 24-54 54v40h53V24Zm0 0c30 0 54 24 54 54v40h-53V24Z" fill="#363b33" stroke="#71796a" stroke-opacity=".5" stroke-width="2"/>
+                  <rect x="140" y="50" width="20" height="43" rx="10" fill="#11140f" stroke="#68705e" stroke-width="2"/><rect x="146" y="58" width="8" height="15" rx="4" class="wheel-led"/>
+                  <path d="M61 137h28v42c0 16-12 28-28 30v-72Zm178 0h-28v42c0 16 12 28 28 30v-72Z" fill="#3b4038" stroke="#879080" stroke-opacity=".45" stroke-width="2"/>
+                  <path d="M62 199c13-1 22-8 27-20m150 20c-13-1-22-8-27-20" stroke="var(--led-color)" stroke-width="4" stroke-linecap="round" class="mouse-led"/>
+                  <path d="M97 240c14 13 32 20 53 20s39-7 53-20" stroke="var(--led-color)" stroke-width="5" stroke-linecap="round" class="mouse-led"/>
+                </svg>
+                <div class="preview-caption"><span class="preview-caption-dot"></span><span id="previewModeName">Зелёное дыхание</span><span class="preview-caption-right">RGB EFFECT</span></div>
+              </div>
+              <div class="lighting-color-row"><div><span class="field-title">ЦВЕТ ЭФФЕКТА</span><small>Для постоянного света и дыхания</small></div><label class="color-input-wrap"><input id="lightingColor" type="color" value="#00ff00" aria-label="Цвет подсветки"><span id="lightingColorHex">#00FF00</span><span class="color-pencil">↗</span></label></div>
+              <div class="swatch-row" id="colorSwatches" aria-label="Цветовые пресеты"></div>
+            </div>
+            <div class="panel effect-panel">
+              <div class="panel-heading"><div><span class="panel-label">БИБЛИОТЕКА ЭФФЕКТОВ</span><h3>Выбери настроение</h3></div><span class="count-label">07 РЕЖИМОВ</span></div>
+              <div class="mode-grid" id="lightingModes"></div>
+              <div class="speed-control">
+                <div class="control-titleline"><div><span class="field-title">СКОРОСТЬ АНИМАЦИИ</span><small>Темп светового эффекта</small></div><strong id="speedValue">6 <span>/ 8</span></strong></div>
+                <input id="lightingSpeed" class="range-input" type="range" min="1" max="8" step="1" value="6" aria-label="Скорость анимации">
+                <div class="range-ends"><span>ПЛАВНО</span><span>БЫСТРО</span></div>
+              </div>
+              <div class="lighting-extra-row">
+                <div><span class="field-title">АВТОСОН</span><small>Таймер бездействия мыши</small></div>
+                <div class="inline-stepper"><button type="button" data-sleep-step="-1" aria-label="Уменьшить таймер">−</button><strong id="sleepValue">0,5 <small>мин</small></strong><button type="button" data-sleep-step="1" aria-label="Увеличить таймер">+</button></div>
+              </div>
+              <div class="panel-footer"><span class="pending-copy" id="lightingPending">Профиль хранится на этом Mac</span><button id="applyLighting" class="button button-primary apply-button" type="button" disabled>Применить <span>↗</span></button></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="performance">
+          <div class="page-intro compact-intro"><div><div class="eyebrow">02 / ТОЧНОСТЬ</div><h2>Настрой отклик<span>.</span></h2><p>Шесть уровней чувствительности и скорость передачи данных.</p></div><div class="intro-stat"><span id="activeStageDpi">1 200</span><small>DPI · ТЕКУЩИЙ УРОВЕНЬ</small></div></div>
+          <div class="panel dpi-panel">
+            <div class="panel-heading"><div><span class="panel-label">SENSOR SENSITIVITY</span><h3>Уровни DPI</h3></div><span class="micro-chip">ШАГ 50 DPI</span></div>
+            <p class="panel-description">Выбери этап переключения или измени его точность с шагом 50 DPI.</p>
+            <div class="stage-grid" id="stageGrid"></div>
+            <div class="dpi-tune-row"><div><span class="field-title">ЧУВСТВИТЕЛЬНОСТЬ ЭТАПА <b id="selectedStageNumber">02</b></span><small>50 — 26 000 DPI</small></div><div class="dpi-slider-wrap"><input id="dpiSlider" class="range-input" type="range" min="50" max="26000" step="50" value="1200" aria-label="Текущее значение DPI"><strong id="dpiValue">1 200</strong></div></div>
+            <div class="panel-footer"><span class="pending-copy" id="performancePending">DPI и частота хранятся в локальном профиле</span><button id="applyPerformance" class="button button-primary apply-button" type="button" disabled>Применить DPI и частоту <span>↗</span></button></div>
+          </div>
+          <div class="performance-lower">
+            <div class="panel polling-panel"><div class="panel-heading"><div><span class="panel-label">USB REPORT RATE</span><h3>Частота опроса</h3></div><span class="polling-current" id="pollingCurrent">1 000 <small>Гц</small></span></div><p class="panel-description">Чем выше частота, тем чаще мышь сообщает положение курсора.</p><div class="polling-options" id="pollingOptions"></div><div class="polling-scale"><span>ЭКОНОМИЯ ЭНЕРГИИ</span><span>НИЗКАЯ ЗАДЕРЖКА</span></div></div>
+            <div class="panel quick-spec-panel"><div class="panel-label">ПОДСКАЗКА</div><div class="spec-orbit">1<span>ms</span></div><h3>Быстрый отклик</h3><p>1 000 Гц — отчёт мыши каждую миллисекунду. Уменьши частоту, если важнее время работы от батареи.</p><div class="spec-divider"></div><div class="spec-line"><span>Доступные режимы</span><strong>125 / 250 / 500 / 1 000</strong></div></div>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="controls">
+          <div class="page-intro compact-intro"><div><div class="eyebrow">03 / КОНТРОЛЬ</div><h2>Сенсор и отклик<span>.</span></h2><p>Подстрой движение курсора и чувствительность переключателей.</p></div><div class="intro-stamp controls-stamp"><span>3395</span><small>OPTICAL<br>SENSOR</small></div></div>
+          <div class="controls-grid">
+            <div class="panel sensor-panel"><div class="panel-heading"><div><span class="panel-label">SENSOR BEHAVIOUR</span><h3>Фильтры движения</h3></div><span class="micro-chip green-chip">PAW3395</span></div>
+              <div class="setting-row"><div class="setting-icon">↗</div><div class="setting-text"><strong>Выравнивание угла</strong><small>Сглаживает траекторию по прямым линиям</small></div><button class="toggle" id="angleToggle" type="button" role="switch" aria-checked="false" aria-label="Выравнивание угла"><span></span></button></div>
+              <div class="setting-row"><div class="setting-icon">≈</div><div class="setting-text"><strong>Сглаживание дрожания</strong><small>Убирает мелкие колебания сенсора на высоком DPI</small></div><button class="toggle" id="rippleToggle" type="button" role="switch" aria-checked="false" aria-label="Сглаживание дрожания"><span></span></button></div>
+              <div class="lod-control"><div><strong>Высота отрыва</strong><small>Расстояние, на котором сенсор прекращает трекинг</small></div><div class="segmented" id="lodOptions"><button type="button" data-lod="1">1 мм</button><button type="button" data-lod="2">2 мм</button></div></div>
+              <div class="sensor-visual"><span class="sensor-visual-line"></span><span class="sensor-dot"></span><span class="sensor-visual-copy">LIFT-OFF DISTANCE <b id="lodVisualValue">2 MM</b></span></div>
+            </div>
+            <div class="panel debounce-panel"><div class="panel-heading"><div><span class="panel-label">SWITCH RESPONSE</span><h3>Задержка клика</h3></div><div class="debounce-value" id="debounceValue">8<small>мс</small></div></div><p class="panel-description">Время фильтрации дребезга контактов. Меньше — быстрее клик, больше — устойчивее к двойным срабатываниям.</p>
+              <div class="debounce-scale"><span>БЫСТРЕЕ</span><span>СТАБИЛЬНЕЕ</span></div><input id="debounceSlider" class="range-input" type="range" min="2" max="25" step="1" value="8" aria-label="Задержка переключателя">
+              <div class="debounce-badges"><span>2 мс</span><span class="recommended-badge">ОБЫЧНО 4–8 мс</span><span>25 мс</span></div>
+              <div class="debounce-tip"><span>✦</span><p>Для быстрых игр попробуй 2–4 мс. Если мышь иногда делает двойной клик, увеличь значение.</p></div>
+            </div>
+          </div>
+          <div class="panel controls-footer"><div><span class="pending-copy" id="controlsPending">Изменения сенсора сохраняются в профиле</span><small>Включённые фильтры могут менять ощущение движения.</small></div><button id="applyControls" class="button button-primary apply-button" type="button" disabled>Применить настройки <span>↗</span></button></div>
+        </section>
+
+        <section class="page-view" data-view="buttons">
+          <div class="page-intro compact-intro"><div><div class="eyebrow">04 / ПЕРСОНАЛИЗАЦИЯ</div><h2>Каждая кнопка<br>на своём месте<span>.</span></h2><p>Выбери действие для физической кнопки. Новые назначения отправляются после отдельного подтверждения.</p></div><div class="intro-stamp button-stamp"><span>07</span><small>BUTTONS<br>AVAILABLE</small></div></div>
+          <div class="remap-layout">
+            <div class="panel remap-panel"><div class="panel-heading"><div><span class="panel-label">BUTTON ASSIGNMENT</span><h3>Действия мыши</h3></div><span class="micro-chip">7 ФИЗИЧЕСКИХ КНОПОК</span></div><div class="button-list" id="buttonList"></div><div class="remap-warning"><span>!</span><div><strong>Проверь назначение перед отправкой</strong><small>Изменение кнопки может убрать привычное действие. Заводская раскладка останется доступна в профиле «Стандарт X6».</small></div></div><div class="panel-footer"><span class="pending-copy" id="buttonsPending">Назначения пока только в локальном профиле</span><button id="applyButtons" class="button button-primary apply-button" type="button" disabled>Применить кнопки <span>↗</span></button></div></div>
+            <div class="panel button-map-panel"><div class="panel-label">РАСКЛАДКА X6</div><div class="button-map-art"><div class="map-halo"></div><svg viewBox="0 0 230 320" fill="none" aria-hidden="true"><path d="M115 17C65 17 29 53 29 103v116c0 49 36 84 86 84s86-35 86-84V103c0-50-36-86-86-86Z" fill="#292e27" stroke="#727b6c" stroke-width="2"/><path d="M115 19v91" stroke="#848d7c" stroke-width="2"/><path d="M115 19c-29 0-53 24-53 53v38h52V19Zm0 0c29 0 53 24 53 53v38h-52V19Z" fill="#393f36" stroke="#737d6b"/><rect x="106" y="46" width="18" height="42" rx="9" fill="#11150f"/><path d="M30 117h32v46c0 13-12 25-32 28v-74Zm170 0h-32v46c0 13 12 25 32 28v-74Z" fill="#373d34" stroke="#7b8472"/><circle cx="92" cy="135" r="10" fill="#c9ff59"/><circle cx="92" cy="176" r="10" fill="#84a5ff"/><circle cx="153" cy="150" r="10" fill="#ffbd71"/><circle cx="91" cy="222" r="8" fill="#a5f270"/><circle cx="139" cy="266" r="8" fill="#a5f270"/></svg><span class="map-label label-6">06</span><span class="map-label label-7">07</span><span class="map-label label-side">04<br>05</span><span class="map-label label-wheel">03</span></div><div class="map-key"><span><i class="key-dot lime-key"></i>Основные</span><span><i class="key-dot blue-key"></i>DPI</span><span><i class="key-dot amber-key"></i>Боковые</span></div><p>Пронумеровано по физическим кнопкам, как в официальной раскладке X6.</p></div>
+          </div>
+        </section>
+
+        <section class="page-view" data-view="device">
+          <div class="page-intro compact-intro"><div><div class="eyebrow">05 / УПРАВЛЕНИЕ</div><h2>Профили и устройство<span>.</span></h2><p>Сохраняй разные наборы настроек локально и отправляй нужный на X6.</p></div><div class="intro-stamp device-stamp"><span>⌑</span><small>LOCAL<br>PROFILES</small></div></div>
+          <div class="device-grid">
+          <div class="panel profiles-panel"><div class="panel-heading"><div><span class="panel-label">ПРОФИЛИ НА ЭТОМ MAC</span><h3>Наборы настроек</h3></div><span class="profile-tag" id="activeProfileBadge">Стандарт X6</span></div><p class="panel-description">Профили независимы для каждого подключённого X6. Переключение профиля меняет локальную конфигурацию, но ничего не отправляет в мышь.</p><div class="profile-list" id="profileList"></div><div class="profile-actions"><button class="button button-secondary" id="createProfile" type="button">＋ Новый профиль</button><button class="button button-quiet" id="duplicateProfile" type="button">Дублировать</button><button class="button button-quiet" id="renameProfile" type="button">Переименовать</button></div><div class="profile-apply-box"><div><strong>Отправить весь профиль</strong><small>Настройки DPI, света, частоты и назначения кнопок</small></div><button id="applyProfilePage" class="button button-primary" type="button" disabled>Применить <span>↗</span></button></div></div>
+            <div class="panel device-info-panel"><div class="panel-heading"><div><span class="panel-label">ХАРАКТЕРИСТИКИ</span><h3>Attack Shark X6</h3></div><span class="device-status-pill" id="deviceStatusPill"><i></i> Поиск</span></div><div class="device-rows"><div><span>Подключение</span><strong id="deviceConnection">—</strong></div><div><span>USB VID:PID</span><strong id="deviceVidPid">1D57 : FA61</strong></div><div><span>USB location</span><strong id="deviceLocation">—</strong></div><div><span>Серийный номер</span><strong id="deviceSerial">Не передаётся</strong></div><div><span>Протокол</span><strong>Attack Shark X6</strong></div></div><div class="readback-note"><span>i</span><p>Текущие настройки мыши нельзя прочитать. Здесь отображён выбранный локальный профиль, а факт отправки подтверждается ответом X6.</p></div></div>
+          </div>
+          <div class="panel maintenance-panel"><div class="maintenance-icon">↺</div><div class="maintenance-copy"><span class="panel-label">ВОЗВРАТ К СТАНДАРТУ</span><h3>Сбросить настройки X6</h3><p>Отправит стандартный DPI, подсветку «Цвет по DPI», 1 000 Гц и заводские назначения кнопок. Профиль обновится после подтверждения всех команд.</p></div><button id="resetDevice" class="button button-danger" type="button" disabled>Сбросить мышь <span>↗</span></button></div>
+          <div class="technical-footnote"><span>USB HID · Interface 2</span><span>Команды отправляются локальным помощником macOS</span><span>Состояние не считывается из устройства</span></div>
+        </section>
+      </div>
+      <footer class="main-footer"><span>DESIGNED FOR ATTACK SHARK X6</span><span>LOCAL PROFILE · EXPLICIT APPLY</span></footer>
+    </main>
+  </div>
+
+  <div class="toast-region" id="toastRegion" aria-live="polite" aria-atomic="true"></div>
+
+  <dialog id="confirmDialog" class="app-dialog">
+    <form method="dialog" class="dialog-card" id="confirmForm">
+      <button class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      <div class="dialog-icon" id="dialogIcon">↗</div>
+      <div class="eyebrow" id="dialogEyebrow">ПОДТВЕРЖДЕНИЕ</div>
+      <h2 id="dialogTitle">Отправить настройки?</h2>
+      <p id="dialogText">Команды будут переданы подключённой мыши.</p>
+      <div class="dialog-input-wrap" id="dialogInputWrap" hidden><label id="dialogInputLabel" for="dialogInput">Название</label><input id="dialogInput" type="text" maxlength="40" autocomplete="off"></div>
+      <div class="dialog-actions"><button class="button button-secondary" type="button" id="dialogCancel">Отмена</button><button class="button button-primary" type="button" id="dialogConfirm">Подтвердить <span>↗</span></button></div>
+    </form>
+  </dialog>
+</body>
+</html>
