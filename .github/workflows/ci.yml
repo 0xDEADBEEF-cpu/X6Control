@@ -35,4 +35,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build universal app
-        run: scripts/build-macos.sh universal
+        run: bash scripts/build-macos.sh universal
